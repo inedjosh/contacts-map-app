@@ -4,6 +4,9 @@ import { BiSolidCategory } from 'react-icons/bi';
 import { BsPeopleFill } from 'react-icons/bs';
 
 const MobileNav = () => {
+
+  
+
   return (
     <Show breakpoint="(max-width: 480px)">
       <Flex

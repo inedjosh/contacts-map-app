@@ -84,7 +84,8 @@ function AddContact() {
       setPhoneNumber('');
       setEmail('');
       setAddresses([{ address: '', longitude: 0, latitude: 0 }]);
-      setIsSubmitted(true);
+        setIsSubmitted(true);
+        navigate('/dashboard');
     }
   };
 
