@@ -50,7 +50,7 @@ function Home() {
   return (
     <Flex flexDirection={['column', 'column', 'row']} h={'100vh'} w={'100vw'}>
       <Show breakpoint="(max-width: 480px)">
-      <Box position={'fixed'}  top='10' right={'10'} left={'90%'} bg={'#31A183E'} h={'40px'} w={'100vw'} >
+      <Box position={'fixed'}  top='15' right={'15'} left={'85%'} bg={'#31A183E'} h={'40px'} w={'100vw'} >
  <Flex  bg={'#fff'} justifyContent={'center'} alignItems={'center'} w={'35px'} boxShadow={'rgba(0, 0, 0, 0.35) 0px 5px 15px'} h={'35px'} borderRadius={'100%'} outline={'none'}  ref={btnRef} cursor={'pointer'} onClick={onOpen}>
         <AiOutlineMenu fontSize={'20px'} />
       </Flex>
