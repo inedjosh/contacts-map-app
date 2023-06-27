@@ -54,21 +54,21 @@ function Dashboard({hideMap}:DashboardProps ) {
             border="1px solid #555"
             mt="20px"
           >
-            <Table variant="simple">
-              <Thead w={'100%'} >
+            <Table w={'100%'} variant="simple">
+              <Thead bg={'#ccc'} w={'100%'} >
                 <Tr
                   p={['10px', '10px', '30px']}
                     h="60px"
                     w={'100%'}
-                  borderBottom="1px solid #4C4C4C"
+                  borderBottom="1px solid #555"
                 >
-                  <Th textAlign={'start'}  pl={'5px'} w={'25%'} borderRight="1px solid #4C4C4C" color="#000">
+                  <Th textAlign={'start'}  pl={'5px'} w={'25%'} borderRight="1px solid #555" color="#000">
                     Name
                   </Th>
-                  <Th  w={'25%'}  textAlign={'start'}  pl={'5px'} borderRight="1px solid #4C4C4C" color="#000">
+                  <Th  w={'25%'}  textAlign={'start'}  pl={'5px'} borderRight="1px solid #555" color="#000">
                     Phone number
                   </Th>
-                  <Th  w={'25%'} textAlign={'start'}  pl={'5px'} borderRight="1px solid #4C4C4C" color="#000">
+                  <Th  w={'25%'} textAlign={'start'}  pl={'5px'} borderRight="1px solid #555" color="#000">
                     Email
                   </Th>
                   <Th  w={'25%'} textAlign={'start'}  pl={'5px'}  borderRight="none" color="#000">
@@ -76,33 +76,36 @@ function Dashboard({hideMap}:DashboardProps ) {
                   </Th>
                 </Tr>
               </Thead>
-              <Tbody border="1px solid #4C4C4C">
+              <Tbody w={'100%'} border="1px solid #555">
                 {contactContext?.contacts.map((contact, index) => (
-                  <Tr key={index} cursor="pointer"  height="87px">
+                  <Tr w={'100%'}  key={index} cursor="pointer"  height="87px">
                     <Td
                       fontWeight={'300'}
                       color="#000"
-                      borderRight="1px solid #4C4C4C"
-                      borderTop="1px solid #4C4C4C"
+                      borderRight="1px solid #555"
+                      borderTop="1px solid #555"
                       fontSize=".9rem"
+                      w={'25%'}
                     >
                       {contact.name}
                     </Td>
                     <Td
                       fontWeight={'300'}
                       borderLeft="none"
-                      borderRight="1px solid #4C4C4C"
-                      borderTop="1px solid #4C4C4C"
+                      borderRight="1px solid #555"
+                      borderTop="1px solid #555"
                       color={'green'}
+                          w={'25%'}
                     >
                       {contact.phoneNumber}
                     </Td>
                     <Td
                       fontWeight={'300'}
                       borderLeft="none"
-                      borderRight="1px solid #4C4C4C"
-                      borderTop="1px solid #4C4C4C"
+                      borderRight="1px solid #555"
+                      borderTop="1px solid #555"
                       color={'green'}
+                          w={'25%'}
                     >
                       {contact.email}
                     </Td>
@@ -110,7 +113,8 @@ function Dashboard({hideMap}:DashboardProps ) {
                       fontWeight={'300'}
                       borderLeft="none"
                       borderRight="none"
-                      borderTop="1px solid #4C4C4C"
+                      borderTop="1px solid #555"
+                          w={'25%'}
                     >
                       {contact.addresses.length > 0 &&
                         contact.addresses[
@@ -134,7 +138,7 @@ function Dashboard({hideMap}:DashboardProps ) {
       {contactContext?.contacts.length ? (
         <Box zIndex={'1'} >
           <Text>View users address on map</Text>
-          <Box w={['100%' ]} h={'500px'}>
+          <Box w={['100%' ]} h={'600px'}>
           {!hideMap && <MapDiv />}  
           </Box>
   

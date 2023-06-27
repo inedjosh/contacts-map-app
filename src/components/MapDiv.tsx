@@ -7,11 +7,7 @@ import { ContactContext } from '../context';
 import { useContext } from 'react';
 
 const MapDiv = () => {
-  const positions: LatLngExpression[] = [
-    [4.505, -0.09],
-    [4.506, -0.091],
-    [4.507, -0.092],
-  ];
+
 
   const contactContext = useContext(ContactContext);
 
@@ -26,7 +22,7 @@ const MapDiv = () => {
 
   return (
     <MapContainer center={latLngArray[0]} zoom={10} scrollWheelZoom={false}>
-      <Box w={'100vw'} h={'300px'}>
+      <Box w={'100vw'} h={'400px'}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
