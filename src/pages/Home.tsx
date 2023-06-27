@@ -14,12 +14,13 @@ import {
   DrawerContent,
   DrawerCloseButton,
 } from '@chakra-ui/react'
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {TfiClose} from 'react-icons/tfi'
 
 function Home() {
   const { page } = useParams();
   const navigate = useNavigate()
+  const [hideMap, setHideMap] = useState(false)
 
   useEffect(() => {
     if (page === '' || page === undefined) {
@@ -51,7 +52,7 @@ function Home() {
     <Flex flexDirection={['column', 'column', 'row']} h={'100vh'} w={'100vw'}>
       <Show breakpoint="(max-width: 480px)">
       <Box position={'fixed'}  top='15' right={'15'} left={'85%'} bg={'#31A183E'} h={'40px'} w={'100vw'} >
- <Flex  bg={'#fff'} justifyContent={'center'} alignItems={'center'} w={'35px'} boxShadow={'rgba(0, 0, 0, 0.35) 0px 5px 15px'} h={'35px'} borderRadius={'100%'} outline={'none'}  ref={btnRef} cursor={'pointer'} onClick={onOpen}>
+          <Flex bg={'#fff'} justifyContent={'center'} alignItems={'center'} w={'35px'} boxShadow={'rgba(0, 0, 0, 0.35) 0px 5px 15px'} h={'35px'} borderRadius={'100%'} outline={'none'} ref={btnRef} cursor={'pointer'} onClick={() => { onOpen(); setHideMap(true) }}>
         <AiOutlineMenu fontSize={'20px'} />
       </Flex>
         </Box>
@@ -62,25 +63,27 @@ function Home() {
         onClose={onClose}
           finalFocusRef={btnRef}
           size={'xs'}
+          
       >
         <DrawerOverlay />
-        <DrawerContent zIndex={'10'} bg={'#fff'}>
+        <DrawerContent zIndex={'100'} bg={'#28255A'}>
+           
             {/* <DrawerCloseButton  /> */}
-            <Box cursor={'pointer'} px={'20px'} mt={'30px'} onClick={() => onClose()}>
-              <TfiClose fontSize={'20px'} />
+            <Box cursor={'pointer'} px={'20px'} mt={'30px'} onClick={() =>{ onClose(); setHideMap(false)}}>
+              <TfiClose fontSize={'20px'} color={'#fff'} />
               
               </Box>
             <Box px={'20px'} mt={'10px'}>
               <DrawerHeader>
-                <Text fontSize={'20px'}>Logo</Text>
+                <Text fontSize={'20px'} color={'#fff'}>Logo</Text>
                </DrawerHeader>
          </Box>
           <DrawerBody >
               <Box p={'10px'}>
                  {sideNav.map((item) => (
             <Flex
-              bg={item.link === page ? '#28255A' : ''}
-                     onClick={() => { navigate('/' + item.link); onClose() }}
+              bg={item.link === page ? '#fff' : ''}
+                     onClick={() => { navigate('/' + item.link); onClose(); setHideMap(false) }}
               cursor={'pointer'}
               my={'10px'}
               borderRadius={item.link === page ? '30px' : '0'}
@@ -89,13 +92,14 @@ function Home() {
               justifyContent={'flex-start'}
               key={item.id}
             >
-              <Icon  as={item.icon} color={ item.link === page ?'#fff': '#000'} />
-              <Text color={ item.link === page ?'#fff':'#000'} pl={'10px'}>
+              <Icon  as={item.icon} color={ item.link === page ?'#000': '#fff'} />
+              <Text color={ item.link === page ?'#000':'#fff'} pl={'10px'}>
                 {item.name}
               </Text>
             </Flex>
           ))}
-         </Box>
+              </Box>
+              
           </DrawerBody>
 
          
@@ -139,10 +143,10 @@ function Home() {
         overflow={'scroll'}
         scrollBehavior={'smooth'}
         h={'100vh'}
-        w={['100vw', '100vw']}
+        w={['100vw', '100vw', ]}
           >
               
-        {page === 'dashboard' && <Dashboard />}
+        {page === 'dashboard' && <Dashboard hideMap={hideMap} />}
         {page === 'add' && <AddContact />}
       </Box>
     </Flex>

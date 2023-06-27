@@ -1,7 +1,8 @@
-import { Routes, Route, useParams } from 'react-router-dom';
+import { Routes, Route, useParams, useNavigate } from 'react-router-dom';
 import Home from './pages/Home';
 import { Box } from '@chakra-ui/react';
 import MobileNav from './components/MobileNav';
+import { useContext, useEffect } from 'react';
 
 function App() {
 

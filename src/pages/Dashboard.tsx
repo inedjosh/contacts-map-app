@@ -18,7 +18,11 @@ import ButtonDiv from '../components/ButtonDiv';
 import MapDiv from '../components/MapDiv';
 import MobileNav from '../components/MobileNav';
 
-function Dashboard() {
+type DashboardProps = {
+  hideMap: boolean
+}
+
+function Dashboard({hideMap}:DashboardProps ) {
   const contactContext = useContext(ContactContext);
   const navigate = useNavigate();
 
@@ -44,35 +48,37 @@ function Dashboard() {
             You do not have any users on your contact list
           </Text>
         ) : (
+          
           <TableContainer
-            w={['93vw', '93vw', '75vw']}
+            w={['100%']}
             border="1px solid #555"
             mt="20px"
           >
             <Table variant="simple">
-              <Thead>
+              <Thead w={'100%'} >
                 <Tr
                   p={['10px', '10px', '30px']}
-                  h="60px"
+                    h="60px"
+                    w={'100%'}
                   borderBottom="1px solid #4C4C4C"
                 >
-                  <Th borderRight="1px solid #4C4C4C" color="#000">
+                  <Th textAlign={'start'}  pl={'5px'} w={'25%'} borderRight="1px solid #4C4C4C" color="#000">
                     Name
                   </Th>
-                  <Th borderRight="1px solid #4C4C4C" color="#000">
+                  <Th  w={'25%'}  textAlign={'start'}  pl={'5px'} borderRight="1px solid #4C4C4C" color="#000">
                     Phone number
                   </Th>
-                  <Th borderRight="1px solid #4C4C4C" color="#000">
+                  <Th  w={'25%'} textAlign={'start'}  pl={'5px'} borderRight="1px solid #4C4C4C" color="#000">
                     Email
                   </Th>
-                  <Th borderRight="none" color="#000">
+                  <Th  w={'25%'} textAlign={'start'}  pl={'5px'}  borderRight="none" color="#000">
                     <Flex alignItems="center">Address</Flex>
                   </Th>
                 </Tr>
               </Thead>
               <Tbody border="1px solid #4C4C4C">
                 {contactContext?.contacts.map((contact, index) => (
-                  <Tr key={index} cursor="pointer" h="60px" height="87px">
+                  <Tr key={index} cursor="pointer"  height="87px">
                     <Td
                       fontWeight={'300'}
                       color="#000"
@@ -126,12 +132,12 @@ function Dashboard() {
         />
       </Box>
       {contactContext?.contacts.length ? (
-        <Box zIndex={'10'} position={'relative'}>
+        <Box zIndex={'1'} >
           <Text>View users address on map</Text>
-          <Box position={'absolute'} top={'0'} w={['93vw', '93vw', '75vw']} h={'500px'}>
-            <MapDiv />
+          <Box w={['100%' ]} h={'500px'}>
+          {!hideMap && <MapDiv />}  
           </Box>
-          <MobileNav />
+  
         </Box>
       ) : (
         <Box></Box>
