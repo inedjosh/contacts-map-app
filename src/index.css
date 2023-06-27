@@ -1,13 +1,52 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "Fira";
+  src: url("assets/fonts/FiraSans-Bold.ttf") format("truetype");
+  font-weight: 700;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "Fira";
+  src: url("assets/fonts/FiraSans-Italic.ttf") format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Fira";
+  src: url("assets/fonts/FiraSans-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Fira";
+  src: url("assets/fonts/FiraSans-Medium.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Fira";
+  src: url("assets/fonts/FiraSans-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+}
+
+body {
+  font-family: Fira;
+  padding: 0;
+  margin: 0;
+}
+
+p,
+label,
+a,
+input {
+  font-family: Fira;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font-family: Fira;
+  font-weight: 400;
 }
