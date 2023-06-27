@@ -8,9 +8,10 @@ function App() {
   return (
     <Box position={'relative'}>
       <Routes>
+        <Route path='/' element={<Home />} />
         <Route path="/:page" element={<Home />} />
       </Routes>
-      <MobileNav />
+
     </Box>
   );
 }

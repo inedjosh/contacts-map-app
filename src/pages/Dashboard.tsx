@@ -29,7 +29,7 @@ function Dashboard() {
   console.log(contactContext?.contacts);
 
   return (
-    <Box w={'100vw'} p="10px">
+    <Box  px={['10px', '10px', '25px']} py={'5px'}>
       <Box>
         <Text fontWeight="500" fontSize={['20px', '20px', '28px']}>
           Dashboard
@@ -45,7 +45,7 @@ function Dashboard() {
           </Text>
         ) : (
           <TableContainer
-            w={['93vw']}
+            w={['93vw', '93vw', '75vw']}
             border="1px solid #555"
             mt="20px"
           >
@@ -128,7 +128,7 @@ function Dashboard() {
       {contactContext?.contacts.length ? (
         <Box zIndex={'10'} position={'relative'}>
           <Text>View users address on map</Text>
-          <Box position={'absolute'} top={'0'} w={'93vw'} h={'500px'}>
+          <Box position={'absolute'} top={'0'} w={['93vw', '93vw', '75vw']} h={'500px'}>
             <MapDiv />
           </Box>
           <MobileNav />

@@ -6,7 +6,6 @@ export type Address = {
   latitude: number;
 };
 
-// Define the Contact interface
 export interface Contact {
   name: string;
   phoneNumber: string;

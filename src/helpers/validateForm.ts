@@ -26,6 +26,10 @@ export default (
     errors.phoneNumber = 'Phone number must be 11 digits';
   }
 
+  if (!/^[0-9]+$/.test(phoneNumber)) {
+    errors.phoneNumber = 'Please enter a valid phone number'
+  }
+
   // Validate full name
   const nameWords = fullName.trim().split(' ');
   if (nameWords.length < 2) {
